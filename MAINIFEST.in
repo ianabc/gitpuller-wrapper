@@ -1,0 +1,4 @@
+include *.md
+include setup.cfg
+recursive-include gitpuller-wrapper/static *
+recursive-include gitpuller-wrapper/images *

@@ -1,3 +1,5 @@
+from .version import __version__
+
 import os
 import json
 from notebook.base.handlers import IPythonHandler
@@ -26,7 +28,7 @@ def _jupyter_server_extension_paths():
     Set up the server extension 
     """
     return [{
-        'module': 'gitpuller_wrapper',
+        'module': 'gitpuller-wrapper',
     }]
 
 
@@ -36,9 +38,9 @@ def _jupyter_nbextension_paths():
     """
     return [{
         "section": "common",
-        "dest": "gitpuller_wrapper",
+        "dest": "gitpuller-wrapper",
         "src": "static",
-        "require": "gitpuller_wrapper/main"
+        "require": "gitpuller-wrapper/main"
     }]
 
 def load_jupyter_server_extension(nb_server_app):
@@ -46,5 +48,3 @@ def load_jupyter_server_extension(nb_server_app):
     host_pattern = '.*$'
     route_pattern = url_path_join(web_app.settings['base_url'], '/ping')
     web_app.add_handlers(host_pattern, [(route_pattern, PingHandler)])
-    
-    
